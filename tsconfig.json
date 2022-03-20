@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "lib": ["ESNEXT", "DOM"],
+    "target": "ES2017",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "isolatedModules": true,
+    "noEmit": true
+  }
+}
