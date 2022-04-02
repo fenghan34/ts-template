@@ -2,13 +2,15 @@
   "compilerOptions": {
     "lib": ["ESNEXT", "DOM"],
     "target": "ES2017",
-    "esModuleInterop": true,
     "moduleResolution": "node",
+    "isolatedModules": true,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
     "noImplicitAny": true,
-    "strictNullChecks": true,
-    "isolatedModules": true,
+    "strict": true,
     "noEmit": true
   }
 }
