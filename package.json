@@ -7,8 +7,10 @@
   "author": "Feng Han <hi@fenghan.link>",
   "main": "",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
-    "test": "jest"
+    "build": "unbuild",
+    "test": "jest",
+    "prepare": "pnpx husky install",
+    "preinstall": "npx only-allow pnpm"
   },
   "devDependencies": {
     "@fenghan/eslint-config": "^0.1.0",
