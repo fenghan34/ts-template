@@ -26,7 +26,7 @@
   "bin": {},
   "homepage": "https://github.com/fenghan34/ts-template#readme",
   "bugs": {
-    "url": "https://github.com/fenghan34/ts-template/issues"
+    "url": "https://github.com/ts-template/issues"
   },
   "sideEffects": false,
   "scripts": {
@@ -35,10 +35,13 @@
     "lint": "eslint . --fix",
     "typecheck": "tsc --noEmit",
     "test": "jest",
+    "release": "pnpm build && changeset publish",
     "prepare": "pnpx husky install",
     "preinstall": "npx only-allow pnpm"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.4.4",
+    "@changesets/cli": "^2.22.0",
     "@fenghan/eslint-config": "^0.1.2",
     "@types/jest": "^27.4.1",
     "eslint": "^8.11.0",
