@@ -1,24 +1,51 @@
 {
   "name": "ts-template",
   "version": "0.1.0",
+  "packageManager": "pnpm@6.32.4",
   "description": "",
   "keywords": [],
   "license": "MIT",
-  "author": "Feng Han <hi@fenghan.link>",
-  "main": "",
+  "author": "Feng Han <fenghan770@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fenghan34/ts-template.git"
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./*": "./*"
+  },
+  "files": [
+    "dist"
+  ],
+  "bin": {},
+  "homepage": "https://github.com/fenghan34/ts-template#readme",
+  "bugs": {
+    "url": "https://github.com/fenghan34/ts-template/issues"
+  },
+  "sideEffects": false,
   "scripts": {
-    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "build": "rimraf dist && unbuild",
+    "lint": "eslint . --fix",
+    "typecheck": "tsc --noEmit",
     "test": "jest",
     "prepare": "pnpx husky install",
     "preinstall": "npx only-allow pnpm"
   },
   "devDependencies": {
-    "@fenghan/eslint-config": "^0.1.0",
+    "@fenghan/eslint-config": "^0.1.2",
     "@types/jest": "^27.4.1",
     "eslint": "^8.11.0",
     "husky": "^7.0.4",
     "jest": "^27.5.1",
     "lint-staged": "^12.3.7",
+    "rimraf": "^3.0.2",
     "ts-jest": "^27.1.3",
     "typescript": "^4.6.2",
     "unbuild": "^0.7.2"
