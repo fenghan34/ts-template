@@ -4,14 +4,15 @@ on:
   push:
     branches:
       - main
-
-concurrency: ${{ github.workflow }}-${{ github.ref }}
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repo
       - uses: actions/checkout@v2
 
       - name: Set node version to 16
@@ -27,15 +28,18 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2.1.0
+      - uses: pnpm/action-setup@v2.1.0
         with:
-          version: ^6.32.4
+          version: 6.x.x
+          run_install: true
 
-      - name: Install dependencies
+      - name: Run lint
+        run: pnpm lint
 
-      - run: pnpm install
+      - name: Run tests
+        run: pnpm test:cov
 
-      - run: pnpm lint
-
-      - run: pnpm test
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
